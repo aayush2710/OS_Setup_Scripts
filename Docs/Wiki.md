@@ -9,16 +9,16 @@ This Wiki provides support for following distros
 
 
 ## Index
-1. [Arch Installation](#1-arch)
-2. [Vim](#2-vim)
-3. [Virt Manager](#3-vm)
-4. [ZSH](#4-zsh)
-5. [Aptx/LDAC/AAC](#5-aptx)
-5. [VA-APi](#6-vaapi)
-6. [Netflix 1080p](#7-kodi)
+1. [Arch Installation](#arch-installation)
+2. [Vim](#vim-personal-config)
+3. [Virt Manager](#virt-manager)
+4. [ZSH](#zsh)
+5. [Aptx/LDAC/AAC](#aptxldacaac)
+5. [Hardware Acceleration - VA-APi](#intel-vaapi-hardware-acceleration-for-chromium)
+6. [Netflix 1080p](#netflix-1080p-via-kodi)
 
 
-<h2 id="1-arch">Arch Installation</h2>
+## Arch Installation
   - Choose either BTRFS or EXT4 file system and run first script accordingly.
   
 ```
@@ -43,7 +43,7 @@ This Wiki provides support for following distros
  - Reboot and ArchLinux Installation is ready
 
 
-<h2 id="2-vim">VIM (Personal config)</h2>
+## VIM (Personal config)
 
 Vim is a CLI based minimalist text editor with many productive options. VIM (Vi - Improved) is a clone of popular text editor Vi. Lots of plugins are available on vim which take productivity and functionality to a whole different level.
 
@@ -94,7 +94,7 @@ Open Vim and run :PlugInstall
 
 
 
-<h2 id="3-vm">Virt Manager</h2>
+## Virt Manager
 
 The virt-manager application is a desktop user interface for managing virtual machines through libvirt. It primarily targets KVM VMs, but also manages Xen and LXC (linux containers). It presents a summary view of running domains, their live performance & resource utilization statistics. Wizards enable the creation of new domains, and configuration & adjustment of a domain’s resource allocation & virtual hardware. An embedded VNC and SPICE client viewer presents a full graphical console to the guest domain.
 
@@ -115,7 +115,7 @@ Run
 sudo apt install virt-manager qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vlan    
 ```
 
-<h2 id="4-zsh">ZSH</h2>
+## ZSH
 The Z shell is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh.
 
 Plugins
@@ -142,7 +142,7 @@ cp Debian/.zshrc ~/.zshrc
 cp Debian/.zshrc_wsl ~/.zshrc  (For WSL2)
 ```
 
-<h2 id="5-aptx">Aptx/LDAC/AAC</h2> 
+## Aptx/LDAC/AAC
 
 [Pulseaudio Modules Bluetooth](https://github.com/EHfive/pulseaudio-modules-bt) provides Aptx / Aptx HD / LDAC / AAC codecs on linux
 ##### For Arch 
@@ -162,7 +162,7 @@ sudo apt install pulseaudio-modules-bt libldac
 ```
 
 
-<h2 id="6-vaapi">Intel VAAPI - Hardware Acceleration for chromium</h2> 
+## Intel VAAPI - Hardware Acceleration for chromium
 Adding GPU based acceleration for video playback on linux.
 
 ##### For Arch
@@ -210,7 +210,7 @@ After installing a VA-API supported chromium, Go to ```chrome://flags``` and ena
 
 To verify run ```sudo intel_gpu_top``` and check if video decode is being consumed.
 
-<h2 id="7-kodi">Netflix 1080p via KODI</h2> 
+## Netflix 1080p via KODI
 
 Netflix is available only at 720p via all popular browsers like chrome, chromium and firefox on all platforms including Microsoft Windows and Mac OS. To run Netflix 1080p on Linux, we can use Kodi. 
 
@@ -238,7 +238,7 @@ Run Kodi and Go to addons and then add via zip. Install the zip file downloaded 
 Login to the netflix plugin and enjoy 1080p streams on linux!!
 
 
-### Software Preferences
+## Software Preferences
 
 | Type      | Software           | 
 | ------------- |:-------------:|
@@ -249,6 +249,4 @@ Login to the netflix plugin and enjoy 1080p streams on linux!!
 | Video Player | VLC      |
 | Desktop Environment | Gnome      |
 | Virtual Machine | Red Hat Virt-Manager      |
-
-
 
