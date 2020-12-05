@@ -14,7 +14,7 @@ This Wiki provides support for following distros
 3. [Virt Manager](#virt-manager)
 4. [ZSH](#zsh)
 5. [Aptx/LDAC/AAC](#aptxldacaac)
-5. [Hardware Acceleration - VA-APi](#intel-vaapi-hardware-acceleration-for-chromium)
+5. [Hardware Acceleration - VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
 6. [Netflix 1080p](#netflix-1080p-via-kodi)
 
 
