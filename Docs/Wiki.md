@@ -260,7 +260,6 @@ Depending on the scaling driver, one of these governors will be loaded by defaul
 - ondemand for AMD and older Intel CPU.
 - powersave for Intel CPUs using the intel_pstate driver (Sandy Bridge and newer).
 
-By default linux kernel may come with one of the available governers.
 
 To change CPU governer manually
 
