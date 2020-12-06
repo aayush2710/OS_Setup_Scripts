@@ -15,7 +15,7 @@ timezone=Asia/Kolkata
 echo "Installing ARCH Linux" 
 
 #Set Time and locale
-                                                                            timedatectl set-timezone "$timezone"
+timedatectl set-timezone "$timezone"
 
 #Set Language
 sudo sed --in-place 's/^#\s*\(en_IN\s\+UTF-8\)/\1/' /etc/locale.gen
