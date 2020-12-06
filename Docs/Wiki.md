@@ -266,7 +266,7 @@ To change CPU governer manually
   ``` echo <governer> | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
     replace <governer> with any of the available CPU governers
 - To check which CPU governer is currently in operation
-  ``` echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
+  ``` cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ```
 
 
 You can also use [**CPUFreq**](https://github.com/konkor/cpufreq) to configure your CPU scaling settings with a GUI. 
