@@ -18,7 +18,7 @@ This Wiki provides support for following distros
 6. [Hardware Acceleration - VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
 7. [Netflix 1080p](#netflix-1080p-via-kodi)
 8. [CPU Governer](#cpu-governer-intel-p-state)
-
+9. [Matlab Installation](#matlab-installation)
 
 ## Arch Installation
   - Choose either BTRFS or EXT4 file system and run first script accordingly.
@@ -276,6 +276,34 @@ To change CPU governer manually
 You can also use [**CPUFreq**](https://github.com/konkor/cpufreq) to configure your CPU scaling settings with a GUI. 
 CPUFreq is available in Gnome as a shell extention. You can install it from the gnome extension store [here](https://extensions.gnome.org/extension/1082/cpufreq/). 
 For other platforms, please refer the official [CPUFreq install guide](https://github.com/konkor/cpufreq/blob/master/INSTALL.md)
+
+## Matlab Installation
+Matlab installation on Debian based OS is easy but some may face issues with missing libraries or temporary file directory in Arch based distros. So here is a fix
+
+##### For Arch
+1. Download official MATLAB linux package from official website.
+2. Install Libselinux
+    ``` 
+    yay -S libselinux
+    ```
+3. Create a temp directory
+    ``` 
+    mkdir temp 
+    ```
+4. Unzip Matlab and Install
+    ```
+    unzip matlab.zip -d matlab
+    cd matlab
+    sudo ./install -downloadFolder temp -tmpdir temp
+    ```
+
+##### For Debian/Ubuntu
+- Download official MATLAB linux package and Install
+    ```
+    unzip matlab.zip -d matlab
+    cd matlab
+    sudo ./install
+    ```
 
 
 ## Software Preferences
