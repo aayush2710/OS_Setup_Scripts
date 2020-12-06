@@ -278,10 +278,6 @@ CPUFreq is available in Gnome as a shell extention. You can install it from the 
 For other platforms, please refer the official [CPUFreq install guide](https://github.com/konkor/cpufreq/blob/master/INSTALL.md)
 
 
-
-
-=======
->>>>>>> b4ff6cd292c0fe076856d3e87d7cf0afa27c36e4
 ## Software Preferences
 
 | Type      | Software           | 
