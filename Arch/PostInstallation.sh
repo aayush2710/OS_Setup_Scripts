@@ -10,31 +10,23 @@ echo "Installing for arch"
 
 echo "Installing Essentials"
 
-
 #Syncing database with repos
 sudo pacman -Syu --noconfirm
 
 
-#Install Build Tools
-sudo pacman -S fakeroot gcc make cmake base-devel --noconfirm
-sudo pacman -S git curl wget  --noconfirm
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
+#Install Build Toolsyay
+sudo pacman -S fakeroot gcc make cmake --noconfirm
 
-yay -S pamac-aur-git
-
-#Fonts
-yay -S --noconfirm --needed nerd-fonts-terminus nerd-fonts-hack
+#Install Browser
 sudo pacman -S firefox chromium --noconfirm
-
+ 
 #Install Drivers
 sudo pacman -S intel-media-driver libva-utils --noconfirm
 
-
 #PulseAudio config
-yay -S pulseaudio-modules-bt --noconfirm --needed
+sudo pacman -S pulseaudio-modules-bt --noconfirm
+sudo pacman -S libldac --noconfirm
+
 
 #ZSHRC
 sudo cp .zshrc /home/$USER
@@ -55,14 +47,8 @@ bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
 yay -S --noconfirm --needed sublime-text-3
 
 
-#Printing
-sudo pacman -S cups hplip --noconfirm
-sudo systemctl start org.cups.cupsd.service  
-sudo systemctl enable org.cups.cupsd.service  
-
-
 #Vim Neofetch and Mozilla fonts
-sudo pacman -S vim neofetch ttf-fira-sans ttf-fira-mono ttf-fira-code --noconfirm
+sudo pacman -S vim neofetch --noconfirm
 
 #Terminal Transparency Mod
 yay -S  gnome-terminal-transparency
@@ -71,7 +57,6 @@ yay -S  gnome-terminal-transparency
 sudo pacman -S wireguard-tools --noconfirm
 
 #Theme
-yay -S matcha-gtk-theme --needed --noconfirm
 yay -S whitesur-gtk-theme --needed --noconfirm
 
 #Shotwell
@@ -88,8 +73,6 @@ yay -S pop-shell-shortcuts gnome-shell-extension-pop-shell --noconfirm --needed
 #Extensions
 yay -S  --noconfirm --needed gnome-shell-extension-cpufreq
 yay -S  --noconfirm --needed gnome-shell-extension-vitals
-yay -S  --noconfirm --needed gnome-shell-extension-dash-to-dock
-yay -S  --noconfirm --needed gnome-shell-extension-gsconnect
 
 #Extras
 yay -S teams --noconfirm --needed
@@ -103,4 +86,5 @@ git config --global user.name "Aayush Goyal"
 #Install Anaconda
 cd Anaconda
 bash Anaconda.sh
+
 

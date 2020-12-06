@@ -9,6 +9,16 @@ This Wiki provides support for following distros
 
 
 ## Index
+<<<<<<< HEAD
+1. [Arch Installation](#1-arch)
+2. [Vim](#2-vim)
+3. [Virt Manager](#3-vm)
+4. [ZSH](#4-zsh)
+5. [Aptx/LDAC/AAC](#5-aptx)
+6. [VA-APi](#6-vaapi)
+7. [Netflix 1080p](#7-kodi)
+8. [CPU Governer](#cpu-governer-intel-p-state)
+=======
 1. [Arch Installation](#arch-installation)
 2. [Vim](#vim-personal-config)
 3. [Virt Manager](#virt-manager)
@@ -16,6 +26,7 @@ This Wiki provides support for following distros
 5. [Aptx/LDAC/AAC](#aptxldacaac)
 5. [Hardware Acceleration - VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
 6. [Netflix 1080p](#netflix-1080p-via-kodi)
+>>>>>>> b4ff6cd292c0fe076856d3e87d7cf0afa27c36e4
 
 
 ## Arch Installation
@@ -237,7 +248,47 @@ Run Kodi and Go to addons and then add via zip. Install the zip file downloaded 
 
 Login to the netflix plugin and enjoy 1080p streams on linux!!
 
+## CPU Governer (Intel P-State)
+CPU frequency scaling enables the operating system to scale the CPU frequency up or down in order to save power. CPU frequencies can be scaled automatically depending on the system load, in response to ACPI events, or manually by userspace programs.
 
+<<<<<<< HEAD
+A CPU Governer defines the rules or patterns for OS to scale CPU frequency depending on load. See the table below for list of governers.
+
+|Governor|	Description|
+| ------------- |:-------------:|
+| performance	| Run the CPU at the maximum frequency.
+|powersave	| Run the CPU at the minimum frequency.
+|userspace	| Run the CPU at user specified frequencies.
+|ondemand	| Scales the frequency dynamically according to current load. Jumps to the highest frequency and then possibly back off as the idle time increases.
+|conservative	| Scales the frequency dynamically according to current load. Scales the frequency more gradually than ondemand.
+|schedutil	| Scheduler-driven CPU frequency selection
+
+Depending on the scaling driver, one of these governors will be loaded by default:
+- ondemand for AMD and older Intel CPU.
+- powersave for Intel CPUs using the intel_pstate driver (Sandy Bridge and newer).
+
+By default linux kernel may come with one of the available governers.
+
+To change CPU governer manually
+
+- Check all the available governers with 
+  ``` cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors ```
+- Set the CPU governer you want 
+  ``` echo <governer> | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
+    replace <governer> with any of the available CPU governers
+- To check which CPU governer is currently in operation
+  ``` echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
+
+
+You can also use [**CPUFreq**](https://github.com/konkor/cpufreq) to configure your CPU scaling settings with a GUI. 
+CPUFreq is available in Gnome as a shell extention. You can install it from the gnome extension store [here](https://extensions.gnome.org/extension/1082/cpufreq/). 
+For other platforms, please refer the official [CPUFreq install guide](https://github.com/konkor/cpufreq/blob/master/INSTALL.md)
+
+
+
+
+=======
+>>>>>>> b4ff6cd292c0fe076856d3e87d7cf0afa27c36e4
 ## Software Preferences
 
 | Type      | Software           | 
