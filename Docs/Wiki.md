@@ -9,16 +9,16 @@ This Wiki provides support for following distros
 
 
 ## Index
-
 1. [Arch Installation](#arch-installation)
 2. [Vim](#vim-personal-config)
 3. [Virt Manager](#virt-manager)
 4. [ZSH](#zsh)
 5. [Aptx/LDAC/AAC](#aptxldacaac)
-6. [Hardware Acceleration - VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
+6. [VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
 7. [Netflix 1080p](#netflix-1080p-via-kodi)
 8. [CPU Governer](#cpu-governer-intel-p-state)
 9. [Matlab Installation](#matlab-installation)
+10. [Sound Quality Improvements](#sound-quality-improvements)
 
 ## Arch Installation
   - Choose either BTRFS or EXT4 file system and run first script accordingly.
@@ -37,8 +37,6 @@ This Wiki provides support for following distros
  - set Swap partition in variable **swappart**
  - set desired username in variable **username**
  - set desired hostname in variable **hostname**
- - set desired language in variable **language**
- - set desired timezone in variable **timezone**
 ```
     bash btrfs.sh or bash ext4.sh
     arch-chroot /mnt
@@ -244,7 +242,6 @@ Login to the netflix plugin and enjoy 1080p streams on linux!!
 ## CPU Governer (Intel P-State)
 CPU frequency scaling enables the operating system to scale the CPU frequency up or down in order to save power. CPU frequencies can be scaled automatically depending on the system load, in response to ACPI events, or manually by userspace programs.
 
-<<<<<<< HEAD
 A CPU Governer defines the rules or patterns for OS to scale CPU frequency depending on load. See the table below for list of governers.
 
 |Governor|	Description|
@@ -305,6 +302,23 @@ Matlab installation on Debian based OS is easy but some may face issues with mis
     ```
 
 
+## Sound Quality Improvements
+Some changes in Pulse Audio configuration can improve audio quality in linux. This can be done by changing certain parameters in ```/etc/pulse/daemon.conf```.
+
+| Property      | Value           | 
+| ------------- |:-------------:|
+| Default Sample Format     | float32 |
+| Resample method      | soxr-vhq      |
+| Default sample rate | 48000      |
+| Realtime priority | 9      |
+
+Note : These modifications are not suited for old computers and hardware.
+
+Changes can be easily done by running the script ```bash common/pulseaudio-improvements.sh```
+
+
+
+
 ## Software Preferences
 
 | Type      | Software           | 
@@ -316,4 +330,5 @@ Matlab installation on Debian based OS is easy but some may face issues with mis
 | Video Player | VLC      |
 | Desktop Environment | Gnome      |
 | Virtual Machine | Red Hat Virt-Manager      |
+
 
