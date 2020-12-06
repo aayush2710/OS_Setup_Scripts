@@ -14,8 +14,8 @@ echo "Installing Essentials"
 sudo pacman -Syu --noconfirm
 
 
-#Install Build Toolsyay
-sudo pacman -S fakeroot gcc make cmake --noconfirm
+#Install Build Tools
+sudo pacman -S yay --noconfirm
 
 #Install Browser
 sudo pacman -S firefox chromium --noconfirm
