@@ -9,24 +9,15 @@ This Wiki provides support for following distros
 
 
 ## Index
-<<<<<<< HEAD
-1. [Arch Installation](#1-arch)
-2. [Vim](#2-vim)
-3. [Virt Manager](#3-vm)
-4. [ZSH](#4-zsh)
-5. [Aptx/LDAC/AAC](#5-aptx)
-6. [VA-APi](#6-vaapi)
-7. [Netflix 1080p](#7-kodi)
-8. [CPU Governer](#cpu-governer-intel-p-state)
-=======
+
 1. [Arch Installation](#arch-installation)
 2. [Vim](#vim-personal-config)
 3. [Virt Manager](#virt-manager)
 4. [ZSH](#zsh)
 5. [Aptx/LDAC/AAC](#aptxldacaac)
-5. [Hardware Acceleration - VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
-6. [Netflix 1080p](#netflix-1080p-via-kodi)
->>>>>>> b4ff6cd292c0fe076856d3e87d7cf0afa27c36e4
+6. [Hardware Acceleration - VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
+7. [Netflix 1080p](#netflix-1080p-via-kodi)
+8. [CPU Governer](#cpu-governer-intel-p-state)
 
 
 ## Arch Installation
@@ -46,6 +37,8 @@ This Wiki provides support for following distros
  - set Swap partition in variable **swappart**
  - set desired username in variable **username**
  - set desired hostname in variable **hostname**
+ - set desired language in variable **language**
+ - set desired timezone in variable **timezone**
 ```
     bash btrfs.sh or bash ext4.sh
     arch-chroot /mnt
