@@ -19,6 +19,7 @@ This Wiki provides support for following distros
 8. [CPU Governer](#cpu-governer-intel-p-state)
 9. [Matlab Installation](#matlab-installation)
 10. [Sound Quality Improvements](#sound-quality-improvements)
+11. [Hibernation](#hibernation)
 
 ## Arch Installation
   - Choose either BTRFS or EXT4 file system and run first script accordingly.
@@ -264,7 +265,7 @@ To change CPU governer manually
   ``` cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors ```
 - Set the CPU governer you want 
   ``` echo <governer> | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
-    replace <governer> with any of the available CPU governers
+    replace **<governer>** with any of the available CPU governers
 - To check which CPU governer is currently in operation
   ``` cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ```
 
@@ -316,6 +317,48 @@ Note : These modifications are not suited for old computers and hardware.
 
 Changes can be easily done by running the script ```bash common/pulseaudio-improvements.sh```
 
+## Hibernation
+To enable hibernation via snap in linux
+
+1) Create a swap and enable it
+```
+swappart=sda2
+sudo mkswap /dev/"$swappart"
+sudo swapon /dev/"$swappart"
+```
+2) Auto enable swap on every boot by adding it to FSTAB
+```
+sudo bash -c "echo UUID=$(lsblk -no UUID /dev/"$swappart") none swap defaults 0 0 >> /etc/fstab"
+```
+3) Add required hooks to ```mkinitcpio.conf``` 
+```
+HUK="(base udev autodetect modconf block filesystems keyboard keymap resume)"
+sed -i "s/^\(HOOKS\s*=\s*\).*\$/\1$HUK/" /etc/mkinitcpio.conf
+mkinitcpio -p linux
+```
+4) Add kernel parameters to ```/etc/default/grub```
+```
+VAL="\"resume=UUID=$(lsblk -no UUID /dev/"$swappart")\""
+sed -i "s/^\(GRUB_CMDLINE_LINUX_DEFAULT\s*=\s*\).*\$/\1$VAL/" /etc/default/grub
+```
+5) Update grub
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+###### EASY method
+
+or use an easy script 
+
+```
+vim common/cswap
+```
+Edit **swappart** variable and set your swap partition id
+
+```
+bash common/cswap
+```
+
+
 
 
 
@@ -330,5 +373,4 @@ Changes can be easily done by running the script ```bash common/pulseaudio-impro
 | Video Player | VLC      |
 | Desktop Environment | Gnome      |
 | Virtual Machine | Red Hat Virt-Manager      |
-
 
