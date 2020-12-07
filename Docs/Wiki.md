@@ -14,7 +14,7 @@ This Wiki provides support for following distros
 3. [Virt Manager](#virt-manager)
 4. [ZSH](#zsh)
 5. [Aptx/LDAC/AAC](#aptxldacaac)
-6. [VA-APi](#intel-vaapi-hardware-acceleration-for-chromium)
+6. [VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
 7. [Netflix 1080p](#netflix-1080p-via-kodi)
 8. [CPU Governer](#cpu-governer-intel-p-state)
 9. [Matlab Installation](#matlab-installation)
