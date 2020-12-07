@@ -14,7 +14,7 @@ This Wiki provides support for following distros
 3. [Virt Manager](#virt-manager)
 4. [ZSH](#zsh)
 5. [Aptx/LDAC/AAC](#aptxldacaac)
-6. [VA-APi](#intel-vaapi---hardware-acceleration-for-chromium)
+6. [VA-APi](#intel-vaapi-hardware-acceleration-for-chromium)
 7. [Netflix 1080p](#netflix-1080p-via-kodi)
 8. [CPU Governer](#cpu-governer-intel-p-state)
 9. [Matlab Installation](#matlab-installation)
@@ -25,13 +25,13 @@ This Wiki provides support for following distros
   - Choose either BTRFS or EXT4 file system and run first script accordingly.
   
 ```
-    cd ArchInstall
-    vim btrfs.sh or vim ext4.sh
+    $ cd ArchInstall
+    $ vim btrfs.sh or vim ext4.sh
 ```
 
  - Set environment variables **swappart** and **mainpart** with swap partition id and os partition id. (eg /dev/sdb1 run "lsblk" to see partition table)
 ```
-    vim script2.sh
+    $ vim script2.sh
 ```
 
  - set EFI partition in variable **efipart**
@@ -39,9 +39,9 @@ This Wiki provides support for following distros
  - set desired username in variable **username**
  - set desired hostname in variable **hostname**
 ```
-    bash btrfs.sh or bash ext4.sh
-    arch-chroot /mnt
-    bash script2.sh
+    $ bash btrfs.sh or bash ext4.sh
+    $ arch-chroot /mnt
+    $ bash script2.sh
 ```
  - Reboot and ArchLinux Installation is ready
 
@@ -75,11 +75,11 @@ Setup Vim with all these plugins
 ##### For Arch
 Install Vim and its plugins
 ```
-sudo pacman -S vim vim-airline vim-airline-themes vim-ale vim-gitgutter vim-editorconfig vim-fugitive vim-align vim-ansible  vim-nerdcommenter vim-nerdtree vim-surround vim-syntastic --noconfirm 
+$ sudo pacman -S vim vim-airline vim-airline-themes vim-ale vim-gitgutter vim-editorconfig vim-fugitive vim-align vim-ansible  vim-nerdcommenter vim-nerdtree vim-surround vim-syntastic --noconfirm 
 ```
 ```
-yay -S vim-plug
-cp Arch/.vimrc ~/.vimrc
+$ yay -S vim-plug
+$ cp Arch/.vimrc ~/.vimrc
 ```
 Open Vim and run :PlugInstall
 
@@ -87,10 +87,10 @@ Open Vim and run :PlugInstall
 
 Install Vim and its plugins
 ```
-sudo apt install vim 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+$ sudo apt install vim 
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp Debian/.vimrc ~/.vimrc
+$ cp Debian/.vimrc ~/.vimrc
 ```
 Open Vim and run :PlugInstall
 
@@ -105,17 +105,17 @@ The virt-manager application is a desktop user interface for managing virtual ma
 
 Run
 ```
-sudo pacman -S virt-manager
-sudo pacman -S ebtables openbsd-netcat dnsmasq bridge-utils qemu
-sudo systemctl enable libvirtd.service    
-sudo systemctl start libvirtd.service    
+$ sudo pacman -S virt-manager
+$ sudo pacman -S ebtables openbsd-netcat dnsmasq bridge-utils qemu
+$ sudo systemctl enable libvirtd.service    
+$ sudo systemctl start libvirtd.service    
 ```
 
 ##### For Debian/Ubuntu
 
 Run
 ```
-sudo apt install virt-manager qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vlan    
+$ sudo apt install virt-manager qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vlan    
 ```
 
 ## ZSH
@@ -130,19 +130,19 @@ Plugins
 ##### For Arch
 Install zsh and plugins
 ```
-sudo pacman -S zsh
-sudo pacman -S zsh-history-substring-search zsh-syntax-highlighting zsh-autosuggestions
-cp Arch/.zshrc ~/.zshrc  
+$ sudo pacman -S zsh
+$ sudo pacman -S zsh-history-substring-search zsh-syntax-highlighting zsh-autosuggestions
+$ cp Arch/.zshrc ~/.zshrc  
 ```
 
 
 ##### For Debian/Ubuntu
 Install zsh and plugins
 ```
-sudo apt install zsh
-sudo apt install zsh-substring-search zsh-syntax-highlighting
-cp Debian/.zshrc ~/.zshrc
-cp Debian/.zshrc_wsl ~/.zshrc  (For WSL2)
+$ sudo apt install zsh
+$ sudo apt install zsh-substring-search zsh-syntax-highlighting
+$ cp Debian/.zshrc ~/.zshrc
+$ cp Debian/.zshrc_wsl ~/.zshrc  (For WSL2)
 ```
 
 ## Aptx/LDAC/AAC
@@ -151,17 +151,17 @@ cp Debian/.zshrc_wsl ~/.zshrc  (For WSL2)
 ##### For Arch 
 Install via AUR 
 ```
-yay -S pulseaudio-modules-bt libldac
-pulseaudio --k
+$ yay -S pulseaudio-modules-bt libldac
+$ pulseaudio --k
 ```
 
 
 ##### For Debian/Ubuntu
 Add berglh repository and install package
 ```
-sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
-sudo apt update
-sudo apt install pulseaudio-modules-bt libldac
+$ sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
+$ sudo apt update
+$ sudo apt install pulseaudio-modules-bt libldac
 ```
 
 
@@ -172,7 +172,7 @@ Adding GPU based acceleration for video playback on linux.
 
 Install Intel VAAPI drivers
 ```
-sudo pacman -S intel-gpu-driver libva-intel-driver libva-utils intel-gpu-tools
+$ sudo pacman -S intel-gpu-driver libva-intel-driver libva-utils intel-gpu-tools
 ```
 
 - Chromium in official arch repositories is VAAPI patched
@@ -193,7 +193,7 @@ or ```echo "--use-gl=egl" `~/.config/chromium-flags.conf```
 
 Then Go to ```chrome://flags``` and enable ```#enable-accelerated-video-decode``` , ``` #ignore-gpu-blocklist``` , ```#enable-gpu-rasterization```.
 
-To verify run ```sudo intel_gpu_top``` and check if video decode is being consumed 
+To verify run ```$ sudo intel_gpu_top``` and check if video decode is being consumed 
 
 or check video decoder at ```chrome://media-internals```.
 Hardware accelerated: MojoVideoDecoder, GpuVideoDecoder.
@@ -211,7 +211,7 @@ sudo apt install intel-gpu-va-driver i965-va-driver vainfo intel-gpu-tools
 
 After installing a VA-API supported chromium, Go to ```chrome://flags``` and enable ```#enable-accelerated-video-decode``` , ``` #ignore-gpu-blocklist``` , ```#enable-gpu-rasterization```.
 
-To verify run ```sudo intel_gpu_top``` and check if video decode is being consumed.
+To verify run ```$ sudo intel_gpu_top``` and check if video decode is being consumed.
 
 ## Netflix 1080p via KODI
 
@@ -221,16 +221,16 @@ Netflix is available only at 720p via all popular browsers like chrome, chromium
 
 Install Kodi
 ``` 
-sudo pacman -S kodi kodi-addons-inputstream-adaptive
+$ sudo pacman -S kodi kodi-addons-inputstream-adaptive
 ```
 ##### For Debian/Ubuntu
 Install Kodi
 ``` 
-sudo pacman -S kodi kodi-addons-inputstream-adaptive
-```sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:team-xbmc/ppa
-sudo apt-get update
-sudo apt-get install kodi kodi-inputstream-adaptive
+$ sudo pacman -S kodi kodi-addons-inputstream-adaptive
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository ppa:team-xbmc/ppa
+$ sudo apt-get update
+$ sudo apt-get install kodi kodi-inputstream-adaptive
 ```
 
 ##### Install Netflix Kodi Plugin
@@ -262,12 +262,12 @@ Depending on the scaling driver, one of these governors will be loaded by defaul
 To change CPU governer manually
 
 - Check all the available governers with 
-  ``` cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors ```
+  ``` $ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors ```
 - Set the CPU governer you want 
-  ``` echo <governer> | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
+  ``` $ echo <governer> | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ```
     replace **<governer>** with any of the available CPU governers
 - To check which CPU governer is currently in operation
-  ``` cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ```
+  ``` $ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ```
 
 
 You can also use [**CPUFreq**](https://github.com/konkor/cpufreq) to configure your CPU scaling settings with a GUI. 
@@ -281,25 +281,25 @@ Matlab installation on Debian based OS is easy but some may face issues with mis
 1. Download official MATLAB linux package from official website.
 2. Install Libselinux
     ``` 
-    yay -S libselinux
+    $ yay -S libselinux
     ```
 3. Create a temp directory
     ``` 
-    mkdir temp 
+    $ mkdir temp 
     ```
 4. Unzip Matlab and Install
     ```
-    unzip matlab.zip -d matlab
-    cd matlab
-    sudo ./install -downloadFolder temp -tmpdir temp
+    $ unzip matlab.zip -d matlab
+    $ cd matlab
+    $ sudo ./install -downloadFolder temp -tmpdir temp
     ```
 
 ##### For Debian/Ubuntu
 - Download official MATLAB linux package and Install
     ```
-    unzip matlab.zip -d matlab
-    cd matlab
-    sudo ./install
+    $ unzip matlab.zip -d matlab
+    $ cd matlab
+    $ sudo ./install
     ```
 
 
@@ -315,47 +315,49 @@ Some changes in Pulse Audio configuration can improve audio quality in linux. Th
 
 Note : These modifications are not suited for old computers and hardware.
 
-Changes can be easily done by running the script ```bash common/pulseaudio-improvements.sh```
+Changes can be easily done by running the script ```$ bash common/pulseaudio-improvements.sh```
 
 ## Hibernation
-To enable hibernation via snap in linux
+To enable hibernation via swap in linux
 
 1) Create a swap and enable it
 ```
-swappart=sda2
-sudo mkswap /dev/"$swappart"
-sudo swapon /dev/"$swappart"
+$ sudo mkswap /dev/<swap>
+$ sudo swapon /dev/<swap>
 ```
+Replace swap with partition id of swap. For example /dev/sda2
+
 2) Auto enable swap on every boot by adding it to FSTAB
 ```
-sudo bash -c "echo UUID=$(lsblk -no UUID /dev/"$swappart") none swap defaults 0 0 >> /etc/fstab"
+$ sudo bash -c "echo UUID=$(lsblk -no UUID /dev/<swap>) none swap defaults 0 0 >> /etc/fstab"
 ```
-3) Add required hooks to ```mkinitcpio.conf``` 
+3) Add resume to Hooks in ```/etc/mkinitcpio.conf```.
 ```
-HUK="(base udev autodetect modconf block filesystems keyboard keymap resume)"
-sed -i "s/^\(HOOKS\s*=\s*\).*\$/\1$HUK/" /etc/mkinitcpio.conf
-mkinitcpio -p linux
+For example
+HOOKS="base udev autodetect modconf block keyboard keymap plymouth filesystems"
+Change it to
+HOOKS="base udev autodetect modconf block keyboard keymap plymouth filesystems resume"
 ```
-4) Add kernel parameters to ```/etc/default/grub```
-```
-VAL="\"resume=UUID=$(lsblk -no UUID /dev/"$swappart")\""
-sed -i "s/^\(GRUB_CMDLINE_LINUX_DEFAULT\s*=\s*\).*\$/\1$VAL/" /etc/default/grub
-```
+4) Add kernel parameters to ```/etc/default/grub```. Edit the file and look for GRUB_CMDLINE_LINUX_DEFAULT key. To its value add 
+```resume=UUID=<UUID of SWAP Partition> ```
+
+To Find UUID of any partition run, ```echo $(lsblk -no UUID /dev/<SWAP>)```
+
 5) Update grub
 ```
-grub-mkconfig -o /boot/grub/grub.cfg
+$ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ###### EASY method
 
 or use an easy script 
 
 ```
-vim common/cswap
+$ vim common/cswap
 ```
 Edit **swappart** variable and set your swap partition id
 
 ```
-bash common/cswap
+$ bash common/cswap
 ```
 
 
