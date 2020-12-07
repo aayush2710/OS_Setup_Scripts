@@ -3,9 +3,17 @@ swappart=sda2
 sudo mkswap /dev/"$swappart"
 sudo swapon /dev/"$swappart"
 sudo bash -c "echo UUID=$(lsblk -no UUID /dev/"$swappart") none swap defaults 0 0 >> /etc/fstab"
-HUK="(base udev autodetect modconf block filesystems keyboard keymap resume)"
+
+HUK=$(awk -v FS="HOOKS=" 'NF>1{print $2}' /etc/mkinitcpio.conf)
+HUK=${HUK:1}
+HUK=${HUK::-1}
+HUK="\"${HUK} resume\""
 sed -i "s/^\(HOOKS\s*=\s*\).*\$/\1$HUK/" /etc/mkinitcpio.conf
 mkinitcpio -p linux
-VAL="\"resume=UUID=$(lsblk -no UUID /dev/"$swappart")\""
+
+
+VAL=$(awk -v FS="GRUB_CMDLINE_LINUX_DEFAULT=" 'NF>1{print $2}' /etc/default/grub)
+VAL=${VAL%\"*}
+VAL="${VAL} resume=UUID=$(lsblk -no UUID /dev/"$swappart")\""
+echo $VAL
 sed -i "s/^\(GRUB_CMDLINE_LINUX_DEFAULT\s*=\s*\).*\$/\1$VAL/" /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
