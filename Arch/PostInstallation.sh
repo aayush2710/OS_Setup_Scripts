@@ -21,7 +21,7 @@ sudo pacman -S yay --noconfirm
 sudo pacman -S firefox chromium --noconfirm
  
 #Install Drivers
-sudo pacman -S intel-media-driver libva-utils --noconfirm
+sudo pacman -S intel-media-driver libva-utils intel-gpu-tools --noconfirm
 
 #PulseAudio config
 sudo pacman -S pulseaudio-modules-bt --noconfirm
@@ -68,7 +68,7 @@ sudo pacman -S vim-airline vim-airline-themes vim-ale vim-gitgutter vim-editorco
 yay -S vim-plug --needed --noconfirm
 
 #Pop
-yay -S pop-shell-shortcuts gnome-shell-extension-pop-shell --noconfirm --needed
+#yay -S pop-shell-shortcuts gnome-shell-extension-pop-shell --noconfirm --needed
 
 #Extensions
 yay -S  --noconfirm --needed gnome-shell-extension-cpufreq
@@ -84,6 +84,7 @@ git config --global user.email "aayush.goyal54@gmail.com"
 git config --global user.name "Aayush Goyal"
 
 #Install Anaconda
+cd ..
 cd Anaconda
 bash Anaconda.sh
 

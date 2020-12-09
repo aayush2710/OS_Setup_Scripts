@@ -186,8 +186,8 @@ Run chromium/brave/etc with the following flag
 2. On Wayland - ```chromium --use-gl=egl  ``` 
 
 Or make this flag permanent by writing it in  ```~/.config/chromium-flags.conf```
-Run ```echo "--use-gl=desktop" `~/.config/chromium-flags.conf``` 
-or ```echo "--use-gl=egl" `~/.config/chromium-flags.conf```
+Run ```echo "--use-gl=desktop" > ~/.config/chromium-flags.conf``` 
+or ```echo "--use-gl=egl" > ~/.config/chromium-flags.conf```
 
 (For brave do the same with ```~/.config/brave-flags.conf``` )
 
