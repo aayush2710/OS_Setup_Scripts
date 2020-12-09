@@ -20,6 +20,7 @@ This Wiki provides support for following distros
 9. [Matlab Installation](#matlab-installation)
 10. [Sound Quality Improvements](#sound-quality-improvements)
 11. [Hibernation](#hibernation)
+12. [Dual Boot Issues](#dual-boot-issues)
 
 ## Arch Installation
   - Choose either BTRFS or EXT4 file system and run first script accordingly.
@@ -360,8 +361,26 @@ Edit **swappart** variable and set your swap partition id
 $ bash common/cswap
 ```
 
+## Dual Boot Issues
 
+#### System Time Inconsistent
 
+###### Make Linux Use Local Time
+Making Linux use local time the same way Windows does is probably the best option. Windows does have a registry setting that forces it to store the time as UTC, but it reportedly isn’t well supported and can cause problems with some third-party applications that always assume the hardware clock is in local time. It’s also incompatible with Windows’ own Internet time-syncing service.
+timedatectl set-local-rtc 1 --adjust-system-clock
+
+The steps to make your Linux system use local time can vary from Linux distribution to Linux distribution. However, on any Linux distribution with systemd, you can use the timedatectl command to make this change.
+
+Run the following command to put the real time clock on the motherboard into local time. Linux will store the time in local time, just like Windows does.
+
+```
+timedatectl set-local-rtc 1 --adjust-system-clock
+```
+
+To Undo this change
+```
+timedatectl set-local-rtc 0 --adjust-system-clock
+```
 
 
 ## Software Preferences
