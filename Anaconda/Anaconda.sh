@@ -25,6 +25,6 @@ echo " Icon=/home/$USER/anaconda3/lib/python3.8/site-packages/anaconda_navigator
 conda install -y pytorch torchvision cpuonly -c pytorch
 conda install -y -c conda-forge keras
 conda install -y -c anaconda tensorflow-gpu
-conda install -c anaconda h5py
+conda install -c -y anaconda h5py
 conda update --all
 
