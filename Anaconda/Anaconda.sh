@@ -7,7 +7,7 @@ wget https://repo.anaconda.com/archive/Anaconda3-$pkgver-Linux-x86_64.sh
 bash Anaconda3-$pkgver-Linux-x86_64.sh -b -p $HOME/anaconda3
 
 #Patch Anaconda Navigator
-bash vscode_path.sh
+#bash vscode_path.sh
 
 #Conda Init
 source /home/$USER/anaconda3/bin/activate
