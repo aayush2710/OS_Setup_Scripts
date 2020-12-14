@@ -10,9 +10,9 @@ bash Anaconda3-$pkgver-Linux-x86_64.sh -b -p $HOME/anaconda3
 #bash vscode_path.sh
 
 #Conda Init
-source /home/$USER/anaconda3/bin/activate
-conda init
-source ~/.zshrc
+#source /home/$USER/anaconda3/bin/activate
+#conda init
+#source ~/.zshrc
 
 #Create Launcher Icons
 sudo cp Anaconda.desktop /usr/share/applications
