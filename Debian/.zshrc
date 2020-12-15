@@ -13,7 +13,7 @@ alias iithd='sudo wg-quick down wg0'
 #alias gitc='git commit -m'
 alias bluetooth-restart='sudo systemctl restart bluetooth'
 alias pulse-restart='systemctl --user restart pulseaudio'
-alias mirrorupdate='curl -s "https://www.archlinux.org/mirrorlist/?country=IN&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > quroodjjdfjofd && sudo cp quroodjjdfjofd /etc/pacman.d/mirrorlist && rm quroodjjdfjofd' 
+
 
 weather() {
 	if [ -n "$1" ]
